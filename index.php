@@ -17,8 +17,8 @@ class CommunicationBus {
     public $timeStartProcessing;
     public $timeEndProcessing;
     public $requestHandler;
-    public $sqlRequestData; // тело ответа
-    public $sqlRequestDataType; // тип тела ответа ?
+    public $sqlRequestData; // ответ
+    public $sqlRequestDataType; // тип ответа
     public $sqlEndRequest;
     public $flagResultProcessing; // успешность обработки true/false
     public $sqlRequestStatus; // обращение к скулю rtue/false
@@ -156,8 +156,8 @@ echo 'Запрос:'.$dbconnect->sqlRequest . '<br>'; // запрос
 echo 'Общее время старта:'.$dbconnect->timeStartProcessing . '<br>';
 echo 'Общее время остановки:'.$dbconnect->timeEndProcessing . '<br>';
 echo 'Заголовки:'.$dbconnect->requestHandler . '<br>';
-echo 'Тело ответа:'.$dbconnect->sqlRequestData . '<br>'; // тело ответа
-echo 'Тип тела ответа:'.$dbconnect->sqlRequestDataType . '<br>'; // тип тела ответа ?
+echo 'Тело ответа:'.$dbconnect->sqlRequestData . '<br>'; // ответ
+echo 'Тип тела ответа:'.$dbconnect->sqlRequestDataType . '<br>'; // тип ответа
 echo 'время завершения запроса в БД:'.$dbconnect->sqlEndRequest . '<br>';
 echo 'Успешность обработки:'.$dbconnect->flagResultProcessing . '<br>'; // успешность обработки true/false
 echo 'Обращение к скулю:'.$dbconnect->sqlRequestStatus . '<br>'; // обращение к скулю rtue/false
@@ -165,19 +165,19 @@ echo 'Обращение к скулю:'.$dbconnect->sqlRequestStatus . '<br>'; 
 
 // запись в лог
 
-$str = 'id connection: ' . $dbconnect->db_connect_id . ' | ';
-$str .= 'Время выполнения запроса:'. $dbconnect->sql_time . ' | '; // Время выпол$
-$str .= 'Запрос:'.$dbconnect->sqlRequest . ' | '; // запрос
-$str .= 'Общее время старта:'.$dbconnect->timeStartProcessing . ' | ';
-$str .= 'Общее время остановки:'.$dbconnect->timeEndProcessing . ' | ';
-$str .= 'Заголовки:'.$dbconnect->requestHandler . ' | ';
-$str .= 'Тело ответа:'.$dbconnect->sqlRequestData . ' | '; // тело ответа
-$str .= 'Тип тела ответа:'.$dbconnect->sqlRequestDataType . ' | '; // тип тела от$
-$str .= 'время завершения запроса в БД:'.$dbconnect->sqlEndRequest . ' | ';
-$str .= 'Успешность обработки:'.$dbconnect->flagResultProcessing . ' | '; // успе$
-$str .= 'Обращение к скулю:'.$dbconnect->sqlRequestStatus . ' | '; // обращение к$
+$str = 'id connection: ' . $dbconnect->db_connect_id . ' | ' . PHP_EOL;
+$str .= 'Время выполнения запроса:'. $dbconnect->sql_time . ' | ' . PHP_EOL; // Время выполнения
+$str .= 'Запрос:'.$dbconnect->sqlRequest . ' | ' . PHP_EOL; // запрос
+$str .= 'Общее время старта:'.$dbconnect->timeStartProcessing . ' | ' . PHP_EOL;
+$str .= 'Общее время остановки:'.$dbconnect->timeEndProcessing . ' | ' . PHP_EOL;
+$str .= 'Заголовки:'.$dbconnect->requestHandler . ' | ' . PHP_EOL;
+$str .= 'Тело ответа:'.$dbconnect->sqlRequestData . ' | ' . PHP_EOL; // ответ
+$str .= 'Тип тела ответа:'.$dbconnect->sqlRequestDataType . ' | ' . PHP_EOL; // тип ответа
+$str .= 'время завершения запроса в БД:'.$dbconnect->sqlEndRequest . ' | ' . PHP_EOL;
+$str .= 'Успешность обработки:'.$dbconnect->flagResultProcessing . ' | ' . PHP_EOL; // успех
+$str .= 'Обращение к скулю:'.$dbconnect->sqlRequestStatus . ' | ' . PHP_EOL; // обращение
 
-echo $str;
+//echo $str;
 
 $log = "communication_log.txt";
 $message = $str . " - обновлен" . date('d.m.Y H:i:s') . "\n";
